@@ -9,7 +9,12 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 8000 // Change this to your server port
-    return `./data/restaurants.json`;
+    
+    if(isHosted){
+      console.log(window.location.hostname);
+      return `https://jkim157.github.io/restaurant-review-app-s1/`
+    }
+    return `http://localhost:${port}/data/restaurants.json`;
   }
 
   /**
